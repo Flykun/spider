@@ -9,7 +9,7 @@
     urlopen()
     data参数
     timeout参数
-2. Request
+2. [Request](./urllib/useRequest.py)
 
 `url = 'http://httpbin.org/post'
 headers = {
@@ -31,5 +31,15 @@ print(response.read())`
     * ProxyHandler: 设置代理
     * HTTPPasswordMgr: 管理密码
     * HTTPBasicAuthHandler: 管理认证
+    
+    1. [验证](urllib/advanceCheck.py)  
+    2. [代理](urllib/advanceAgent.py)  
+    3. [Cookies](urllib/advanceCookies.py)  
+        1. 获取Cookies
+        2. 构造Handler
+        3. 保存Cookies
+        4. 生成Cookies文件
+        5. 读取Cookies文件
+    
     
     
