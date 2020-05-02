@@ -6,9 +6,28 @@
 
 1. 发送请求
     1. urlopen()
+    
+        最基本的GET请求抓取
+    
+        ```python
+        response = urllib.request.urlopen('http://www.python.org')
+        print(response.read(), decode('utf8'))
+        ```
+    
     2. data参数
+    
+        最基本的POST请求抓取, 可选参数
+    
+        ```python
+        data = bytes(urllib.parse.urlencode({'word': 'hello'}), encoding='utf8')
+        response = urllib.request.urlopen('http://httpbin.org/post', data=data)
+        print(response.read())
+        ```
+    
     3. timeout参数
+    
     4. [Request](urllib/发送请求/useRequest.py)
+    
     5. 高级用法
         * HTTPDefaultErrorHandler: 处理错误响应
         * HTTPRedirectHandler: 处理重定向
@@ -31,7 +50,7 @@
     3. [异常判断](urllib/处理异常/timeoutError.py)
 3. 解析链接
     1. **urlparse()**: 实现URL的识别和分段
-        
+       
         1. 返回对象
             返回的结果是一个ParseResult类型的对象
             
@@ -109,23 +128,92 @@
         print(url)
         ```
     
-        
-    
     7. parse_qs()
+    
+        反序列化, 将GET请求参数转回字典
+    
+        ```python
+        print(parse_qs('name=wong&age=22'))
+        # {'name': ['wong'], 'age': 22}
+        ```
     
     8. parse_qsl()
     
+        反序列化, 将参数转化为元组组成的列表
+    
+        ```python
+        print(parse_qsl('name=wong&age=22'))
+        # [('name', 'wong'), ('age', 22)]
+        ```
+    
     9. quote()
     
+        将内容转化为URL编码
+    
+        ```python
+        url = 'https://www.baidu.com/s?wd=' + quote('壁纸')
+        print(url)
+        # https://www.baidu.com/s?wd=%E5%A3%81%E7%BA%B8
+        ```
+    
     10. unquote()
+    
+        URL解码
+    
+        ```python
+        url = 'https://www.baidu.com/s?wd=%E5%A3%81%E7%BA%B8'
+        print(unquote())
+        # 'https://www.baidu.com/s?wd=' + quote('壁纸')
+        ```
 4. 分析Robots协议
     1. Robots协议
+    
+        爬虫协议, 一般有robots.txt文件, 放在网站根目录下
+    
+        ```txt
+        User-agent: *
+        Disallwo: /
+        Allow: /public/
+        ```
+    
     2. 爬虫名称
+    
+        |  爬虫名称   |  名称   |      网站      |
+        | :---------: | :-----: | :------------: |
+        |   Google    |  百度   | www.baidu.com  |
+        | BaiduSpider |  谷歌   | www.google.com |
+        |  360Spider  | 360搜索 |   www.so.com   |
+    
     3. robotparse
+    
+        解析robots.txt, 只需要将robots.txt链接传入
+    
+        ```python
+        urllib.robotparse.RobotFileParser(url='')
+        ```
+    
         * set_url()
-        * read()
+    
+          设置robots.txt链接
+    
+        * **read()**
+    
+          读取文件并分析, 一定要调用
+    
         * parse()
+    
+          解析文件
+    
         * can_fetch()
-        * mtime()
+    
+          传入两个参数, User-agent, URL, 返回是否可以抓取
+    
+        * **mtime()**
+    
+          返回分析时间, 很有必要
+    
         * modified()
+    
+          将当前时间设置为抓取和分析时间
+    
         
