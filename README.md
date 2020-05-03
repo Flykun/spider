@@ -216,4 +216,57 @@
     
           将当前时间设置为抓取和分析时间
     
-        
+### requests
+1. 基本用法
+    1. 准备工作
+    
+       安装requests库
+    
+    2. [实例引入](requests/基本用法/example.py)
+    
+    3. GET请求
+        * [基本实例](requests/基本用法/example.py)
+        * [抓取网页](requests/基本用法/page.py)
+        * [抓取二进制数据](requests/基本用法/binary.py)
+        * 添加headers
+        ```python
+           headers = {
+           'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) 			AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3100.0 		  Safari/537.36'
+           }
+       ```
+       
+    4. [POST请求](requests/基本用法/postRequest.py)
+    
+    5. 响应
+    
+        [错误状态码](https://www.cnblogs.com/zhang12138/p/7711254.html)
+2. 高级用法
+    1. [文件上传](requests/基本用法/fileUpload.py)
+    2. [Cookies](requests/基本用法/response.py)
+    3. [会话维持](requests/基本用法/session.py)
+    4. [SSL证书验证](requests/基本用法/SSL.py): verify参数
+    5. [代理设置](requests/基本用法/proxies.py): proxies参数
+    6. [超时设置](requests/基本用法/timeout.py)
+    7. [身份验证](requests/基本用法/authentication.py)
+    8. [**Prepared Request**](requests/基本用法/preparedRequest.py)
+3. 正则表达式
+    1. 实例引入
+    2. match()
+    3. search()
+    4. findall()
+    5. sub()
+    6. complie()
+4. 抓取猫眼电影排行
+    1. 目标
+    2. 准备工作
+    3. 抓取分析
+    4. 抓取首页
+    5. 正则提取
+    6. 写入文件
+    7. 整合代码
+    8. 分页爬取
+    9. 运行结果
+    10. 代码
+
+    
+

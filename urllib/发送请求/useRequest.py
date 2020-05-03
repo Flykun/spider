@@ -2,8 +2,8 @@ from urllib import request, parse
 
 """
 # 请求对象与urlopen不同
-request = urllib.request.Request('https://python.org')
-response = urllib.request.urlopen(request)
+requests = urllib.requests.Request('https://python.org')
+response = urllib.requests.urlopen(requests)
 print(response.read())
 """
 

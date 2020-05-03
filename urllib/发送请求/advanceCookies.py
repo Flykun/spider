@@ -12,8 +12,8 @@ cookie.save(ignore_discard=True, ignore_expires=True)
 # 读取Cookie文件
 cookie = http.cookiejar.LWPCookieJar()
 cookie.load('cookie.txt', ignore_discard=True, ignore_expires=True)
-handler = urllib.request.HTTPCookieProcessor(cookie)
-opener = urllib.request.build_opener(handler)
+handler = urllib.requests.HTTPCookieProcessor(cookie)
+opener = urllib.requests.build_opener(handler)
 response = opener.open('http://www.baidu.com')
 print(response.read().decode('utf8'))
 '''
