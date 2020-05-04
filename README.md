@@ -64,15 +64,6 @@
             4. params: 参数
             5. query: 查询条件, 一般用于get请求
             5. fragment: 锚点, 定位页面的下拉位置
-            ```python
-            from urllib.parse import urlparse
-            result = urlparse('http://www.baidu.com/index.html;user?id=5#comment')
-            print(type(result), result)
-            '''
-            <class 'urllib.parse.ParseResult'>
-            ParseResult(scheme='http', netloc='www.baidu.com', path='/index.html', params='user', query='id=5', fragment='comment')
-            '''
-            ```
             
         2. 参数
             1. urlstring: 必填项, 待解析的URL
@@ -123,9 +114,7 @@
             'name': 'yong',
             'age': 22
         }
-        base_url = 'http://www.baidu.com'
-        url = base_url + urlencode(params)
-        print(url)
+        print('http://www.baidu.com' + urlencode(params))
         ```
     
     7. parse_qs()
@@ -241,21 +230,78 @@
     
         [错误状态码](https://www.cnblogs.com/zhang12138/p/7711254.html)
 2. 高级用法
-    1. [文件上传](requests/基本用法/fileUpload.py)
+    1. [文件上传](requests/高级用法/fileUpload.py)
     2. [Cookies](requests/基本用法/response.py)
-    3. [会话维持](requests/基本用法/session.py)
-    4. [SSL证书验证](requests/基本用法/SSL.py): verify参数
-    5. [代理设置](requests/基本用法/proxies.py): proxies参数
-    6. [超时设置](requests/基本用法/timeout.py)
-    7. [身份验证](requests/基本用法/authentication.py)
-    8. [**Prepared Request**](requests/基本用法/preparedRequest.py)
+    3. [会话维持](requests/高级用法/session.py)
+    4. [SSL证书验证](requests/高级用法/SSL.py): verify参数
+    5. [代理设置](requests/高级用法/proxies.py): proxies参数
+    6. [超时设置](requests/高级用法/timeout.py)
+    7. [身份验证](requests/高级用法/authentication.py)
+    8. [**Prepared Request**](requests/高级用法/preparedRequest.py)
 3. 正则表达式
-    1. 实例引入
-    2. match()
-    3. search()
-    4. findall()
-    5. sub()
-    6. complie()
+    1. 实例引入  
+        正则表达式测试工具 http://tool.oschina.net/regex/
+    
+    |  模式  |                          描述                          |
+    | :----: | :----------------------------------------------------: |
+    |   \w   |                 匹配字母, 数字及下划线                 |
+    |   \W   |            匹配不是字母, 数字及下划线的字符            |
+    |   \s   |                    匹配任意空白字符                    |
+    |   \S   |                    匹配任意非空字符                    |
+    |   \d   |               匹配任意数字, 等价于[0-9]                |
+    |   \D   |                   匹配任意非数字字符                   |
+    |   \A   |                     匹配字符串开头                     |
+    |   \Z   | 匹配字符串结尾, 如果存在换行, 只匹配到换行前的结束字符 |
+    |   \z   |      匹配字符串结尾, 如果存在换行, 还会匹配换行符      |
+    |   \G   |                 匹配最后完成匹配的位置                 |
+    |   \n   |                       匹配换行符                       |
+    |   \t   |                       匹配制表符                       |
+    |   ^    |                  匹配一行字符串的开头                  |
+    |   $    |                  匹配一行字符串的结尾                  |
+    |   .    |                匹配任意字符, 除了换行符                |
+    | [...]  |                      表示一组字符                      |
+    | [^...] |                     不在[]中的字符                     |
+    |   *    |                 匹配0个或以上的表达式                  |
+    |   +    |                 匹配1个或以上的表达式                  |
+    |   ?    |                       非贪婪模式                       |
+    |  {n}   |               精确匹配到n个前面的表达式                |
+    | n, m)  |       匹配n到m次由正则表达式定义的片段, 贪婪模式       |
+    |  a\|b  |                        匹配a或b                        |
+    |   ()   |          匹配()内的表达式, 表示一个组group()           |
+    
+    2. [**match()**](requests/正则表达式/match.py)  
+       
+       从字符串的开头开始匹配, 开头不匹配, 整个匹配失败, 适用于检测
+       匹配返回结果, 不匹配返回None
+       
+       * 匹配目标
+       用()将要提取的内容括起来, 调用group()传入分组索引, 提取结果
+       * 通用匹配
+    万能匹配 '.*' , 代表无限次任意字符(换行符除外)
+       * [贪婪与非贪婪](requests/正则表达式/greedyMatch.py)
+       * 修饰符: 
+       * 转移匹配: 遇到用于正则匹配模式的特殊字符时, 前面加反斜线\
+       
+    3. [search()](requests/正则表达式/search.py)
+    
+       搜索整个文本
+    
+    4. [findall()](requests/正则表达式/findall.py)
+    
+       返回匹配的所有内容
+    
+    5. [sub()](requests/正则表达式/sub.py)
+    
+       ```txt
+       sub(pattern, repl, string, count=0, flags=0)
+       pattern: 正则出需要去掉的字符
+       repl: 替换成的字符串
+       string: 原字符串
+       ```
+    
+    6. [complie()](requests/正则表达式/compile.py)
+    
+       将正则字符串编译成正则表达式对象, 以便在后面的匹配中复用
 4. 抓取猫眼电影排行
     1. 目标
     2. 准备工作
