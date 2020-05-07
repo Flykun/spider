@@ -1,6 +1,8 @@
 import re
 import json
 import requests
+from requests.exceptions import RequestException
+import time
 
 """
 抓取首页
@@ -9,14 +11,17 @@ import requests
 
 def get_one_page(url):
     # 抓取页面
-    headers = {
-        'User-Agent':
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3100.0 Safari/537.36'
-    }
-    response = requests.get(url, headers=headers)
-    if response.status_code == 200:
-        return response.text
-    return None
+    try:
+        headers = {
+            'User-Agent':
+                'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3100.0 Safari/537.36'
+        }
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+            return response.text
+        return None
+    except RequestException:
+        return None
 
 
 def parse_one_page(html):
@@ -56,6 +61,7 @@ def main(offset):
 if __name__ == '__main__':
     for i in range(10):
         main(offset=i * 10)
+        time.sleep(1)
 
 """
 排名信息: '<dd>.*?board-index.*?>(\d+)</i>'
