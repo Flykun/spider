@@ -352,21 +352,54 @@
 
 7. [父节点](parsingLibrary/XPath/parentNode.py)
 
+   .. 或者 parent::*
+
 8. [属性匹配](parsingLibrary/XPath/attributeMatch.py)
+
+   [@class="xx"]
 
 9. [文本获取](parsingLibrary/XPath/getText.py)
 
+   /text()
+
 10. [属性获取](parsingLibrary/XPath/getAttributes.py)
+
+    /@href
 
 11. [属性多值匹配](parsingLibrary/XPath/attributeMulti-valueMatch.py)
 
-12. 多属性匹配
+    contains()
 
-13. 按序选择
+12. [多属性匹配]()
 
-14. 节点轴选择
+    匹配多个属性
+
+    | 运算符 |   描述   |        实例        |    返回值     |
+    | :----: | :------: | :----------------: | :-----------: |
+    |   or   |    或    |  age=19 or age=20  | True or False |
+    |  and   |    和    | age> 19 and age<22 | True or False |
+    |  mod   |   余数   |      5 mod 2       |       1       |
+    |   \|   |  节点集  |   //book \| //cd   |     合集      |
+    |   +    |   加法   |        6+4         |      10       |
+    |   -    |   减法   |        6-4         |       2       |
+    |   *    |   乘法   |        6*4         |      24       |
+    |  div   |   除法   |      8 div 4       |       2       |
+    |   =    |   等于   |       age=19       | True or False |
+    |   !=   |  不等于  |      age!=19       | True or False |
+    |   <    |   小于   |       age<19       | True or False |
+    |   <=   | 小于等于 |      age<=19       | True or False |
+    |   >    |   大于   |       age>19       | True or False |
+    |   >=   | 大于等于 |      age>=19       | True or False |
+
+13. [按序选择](parsingLibrary/XPath/sock.py)
+
+    利用中括号传入索引
+
+14. [节点轴选择](parsingLibrary/XPath/nodalAxis.py)
 
 15. 结语
+
+    熟练使用
 
 ### 使用Beautiful Soup
 
