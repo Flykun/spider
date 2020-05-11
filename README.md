@@ -407,19 +407,23 @@
 2. 准备工作
 3. 解析器
 4. 基本用法
-5. 节点选择器
+5. [节点选择器](parsingLibrary/beautifulSoup/nodeSelector.py)
    * 选择元素
    * 提取信息
      1. 获取名称
      2. 获取属性
    * 嵌套选择
-   * 关联选择
+   * [关联选择](parsingLibrary/beautifulSoup/associationSelection.py)
      1. 子节点和子孙节点
      2. 父节点和祖先节点
      3. 兄弟节点
      4. 提取信息
 6. 方法选择器
-   * findall()
+   * find_all()  
+     fand_all(name, attrs, recursive, text, **kwargs)
+     * name: 根据节点名查询元素
+     * attrs: 根据属性查询元素
+     * text: 匹配文本
    * find()
 7. CSS选择器
    * 嵌套选择

@@ -22,3 +22,4 @@ print(soup.p.attrs)  # 获取节点属性 {'class': ['title'], 'name': 'dromouse
 print(soup.p.attrs['name'])  # 获取节点属性 返回字符串 dromouse
 print(soup.p['class'])  # 获取节点属性 返回列表 ['title'], 省略attrs
 print(soup.p.string)  # 获取节点文本 The Dormouse's story
+
