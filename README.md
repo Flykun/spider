@@ -456,7 +456,7 @@
 
 ### 文件存储
 
-1. TXT文本存储
+1. [TXT文本存储](dataStorage/fileStorage/TXTStorage/example.py)
 
    1. 本节目标
 
@@ -466,7 +466,7 @@
 
    4. 简化写法
 
-2. JSON文件存储
+2. [JSON文件存储](dataStorage/fileStorage/JSONStorage/readJSON.py)
 
    1. 对象和数组
    2. 读取JSON
@@ -474,12 +474,12 @@
 
 3. CSV文件存储
 
-   1. 写入
-   2. 读取
+   1. [写入](dataStorage/fileStorage/CSVStorage/readData.py)
+   2. [读取](dataStorage/fileStorage/CSVStorage/writeData.py)
 
 ### 关系型数据库存储
 
-1. MySQL的存储
+1. [MySQL的存储](dataStorage/fileStorage/mysqlStorage/connection.py)
    1. 准备工作
    2. 连接数据库
    3. 创建表
@@ -490,7 +490,7 @@
 
 ### 非关系型数据库存储
 
-1. MongoDB存储
+1. [MongoDB存储](dataStorage/fileStorage/mongodaStorage/mongoClient.py)
    1. 准备工作
    2. 连接MongoDB
    3. 指定数据库
