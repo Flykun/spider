@@ -517,3 +517,136 @@
        * redis-dump
        * redis-load
 
+## Ajax 数据爬取
+
+### 什么是Ajax  
+异步的JavaScript和XML. 保证页面不被刷新, 页面链接不改变的情况下与服务器交换数据
+
+1. 实例引入  
+https://m.weibo.cn/u/2830678474
+2. 基本原理
+   1. [发送请求](ajaxSpider/weibo.js)
+   
+   2. 解析内容
+   
+      得到响应后, onreadystatechange属性对应的方法会被触发, 此时利用xmlhttp的responseText属性就可得到响应内容
+   
+      类似于python中利用requests向服务器发送请求, 然后得到响应的过程
+   
+   3. 渲染网页
+
+### Ajax分析方法
+
+1. 查看请求
+2. 过滤请求
+
+### Ajax结果提取
+
+1. 分析请求
+2. 分析响应
+3. 实战演练
+
+### 分析Ajax爬取今日头条街拍美图
+
+1. 准备工作
+2. 抓取分析
+3. 实战演练
+
+## 动态渲染页面爬取
+
+### Selenium的使用
+
+1. 准备工作
+2. 基本使用
+3. 声明浏览器对象
+4. 访问页面
+5. 查找节点
+   * 单个节点
+   * 多个节点
+6. 节点交互
+7. 动作链
+8. 执行JavaScript
+9. 获取节点信息
+   * 获取属性
+   * 获取文本值
+   * 获取id, 位置, 标签名和大小
+10. 切换Frame
+11. 延时等待
+    * 隐式等待
+    * 显式等待
+12. 前进和后退
+13. Cookies
+14. 选项卡管理
+15. 异常处理
+
+### Splash的使用
+
+1. 功能介绍
+2. 准备工作
+3. 实例引入
+4. Splash Lua脚本
+   * 入口及返回值
+   * 异步处理
+5. Splash对象属性
+   * args
+   * js_enabled
+   * resource_timeout
+   * images_enabled
+   * plugins_enabled
+   * scroll_position
+6. Splash对象的方法
+   * go()
+   * wait()
+   * jsfunc()
+   * evaljs()
+   * runjs()
+   * autoload()
+   * call_later()
+   * http_get()
+   * http_post()
+   * set_content()
+   * html()
+   * png()
+   * jpeg()
+   * har()
+   * url()
+   * get_cookies()
+   * add_cookie()
+   * clear_cookies()
+   * get_viewport_size()
+   * set_viewport_size()
+   * set_viewport_full()
+   * set_user_agent()
+   * set_custom_headers()
+   * select()
+   * select_all()
+   * mouse_click()
+7. Splash API的使用
+   * render.html
+   * render.png
+   * render.jpeg
+   * render.har
+   * render.json
+   * execute
+
+### Splash 负载均衡配置
+
+1. 配置Splash服务
+2. 配置负载均衡
+3. 配置认证
+4. 测试
+
+### 使用Selenium爬取淘宝商品
+
+1. 本节目标
+2. 准备工作
+3. 接口分析
+4. 页面分析
+5. 获取商品列表
+6. 解析商品列表
+7. 保存到mongodb
+8. 遍历每页
+9. 运行
+10. Chrome Headless模式
+11. 对接Firefox
+12. 对接Phantom JS
