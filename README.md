@@ -535,18 +535,18 @@ https://m.weibo.cn/u/2830678474
    
    3. 渲染网页
 
-### Ajax分析方法
+### [Ajax分析方法](ajaxSpider/weibo.py)
 
 1. 查看请求
 2. 过滤请求
 
-### Ajax结果提取
+### [Ajax结果提取](ajaxSpider/weiboSpider.py)
 
 1. 分析请求
 2. 分析响应
 3. 实战演练
 
-### 分析Ajax爬取今日头条街拍美图
+### [分析Ajax爬取今日头条街拍美图](ajaxSpider/toutiao.py)
 
 1. 准备工作
 2. 抓取分析
@@ -557,27 +557,47 @@ https://m.weibo.cn/u/2830678474
 ### Selenium的使用
 
 1. 准备工作
-2. 基本使用
-3. 声明浏览器对象
-4. 访问页面
-5. 查找节点
+
+   安装Selenium
+
+2. [基本使用](dynimic/useSelenium/useSelenium.py)
+
+3. [声明浏览器对象](dynimic/useSelenium/useSelenium.py)
+
+4. [访问页面](dynimic/useSelenium/useSelenium.py)
+
+5. [查找节点](dynimic/useSelenium/useSelenium.py)
    * 单个节点
    * 多个节点
-6. 节点交互
-7. 动作链
-8. 执行JavaScript
-9. 获取节点信息
+
+6. [节点交互](dynimic/useSelenium/useSelenium.py)
+
+7. [动作链](dynimic/useSelenium/actionChain.py)
+
+8. [执行JavaScript](dynimic/useSelenium/javaScript.py)
+
+9. [获取节点信息](dynimic/useSelenium/getNodeInfo.py)
    * 获取属性
    * 获取文本值
    * 获取id, 位置, 标签名和大小
-10. 切换Frame
-11. 延时等待
+
+10. [切换Frame](dynimic/useSelenium/cutFrame.py)
+
+11. [延时等待](dynimic/useSelenium/backOrder.py)
     * 隐式等待
     * 显式等待
+
 12. 前进和后退
-13. Cookies
-14. 选项卡管理
-15. 异常处理
+
+    forward(): 前进
+
+    back(): 后退
+
+13. [Cookies](dynimic/useSelenium/cookies.py)
+
+14. [选项卡管理](dynimic/useSelenium/tabControl.py)
+
+15. [异常处理](dynimic/useSelenium/exceptionHandling.py)
 
 ### Splash的使用
 
