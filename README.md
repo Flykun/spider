@@ -601,12 +601,57 @@ https://m.weibo.cn/u/2830678474
 
 ### Splash的使用
 
+JavaScript渲染服务, 是一个带有HTTP API服务的轻量级浏览器, 对接了Python中的Twisted和QT库
+
 1. 功能介绍
+
+   * 异步处理多个网页渲染过程
+   * 获取渲染后的代码
+   * 关闭图片渲染
+   * 执行JavaScript脚本
+   * 执行lua脚本
+   * 获取渲染的详细过程
+
 2. 准备工作
+
+   安装Splash
+
 3. 实例引入
+
+   ```lua
+   function main(splash, args)
+     assert(splash:go(args.url))
+     assert(splash:wait(0.5))
+     return {
+       html = splash:html(),
+       png = splash:png(),
+       har = splash:har(),
+     }
+   end
+   ```
+
+   
+
 4. Splash Lua脚本
+
+   基本实例
+
+   ```lua
+   function main(splash, args)
+     splash:go("http://www.baidu.com")
+     splash:wait(0.5)
+     local title = splash:evaljs("document.title")
+     return {
+       title = title
+     }
+   end
+   ```
+
+   
+
    * 入口及返回值
    * 异步处理
+
 5. Splash对象属性
    * args
    * js_enabled
@@ -614,6 +659,7 @@ https://m.weibo.cn/u/2830678474
    * images_enabled
    * plugins_enabled
    * scroll_position
+
 6. Splash对象的方法
    * go()
    * wait()
@@ -641,6 +687,7 @@ https://m.weibo.cn/u/2830678474
    * select()
    * select_all()
    * mouse_click()
+
 7. Splash API的使用
    * render.html
    * render.png
@@ -670,3 +717,19 @@ https://m.weibo.cn/u/2830678474
 10. Chrome Headless模式
 11. 对接Firefox
 12. 对接Phantom JS
+
+## 模拟登录
+
+### 模拟登录并爬取Github  
+模拟登录后的页面抓取内容, 维护Cookies
+
+1. 本节目标  
+实现模拟登录, 爬取登录后的页面信息
+2. 环境准备  
+安装requests和lxml库
+3. 分析登录过程  
+如果已经登录, 退出, 清除cookies
+4. 代码实战
+5. 运行
+6. 代码仓库
+7. 结语
