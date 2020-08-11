@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
-from scrapy import Spider
+from scrapy import Spider, Request
 from ..items import ResoldApartmentItem
 
 
 class HouseSpider(Spider):
     name = 'house'
-    allowed_domains = ['zhengzhou.anjuke.com/sale']
+    allowed_domains = ['zhengzhou.anjuke.com']
     start_urls = ['https://zhengzhou.anjuke.com/sale/']
 
     def parse(self, response):
@@ -34,3 +34,9 @@ class HouseSpider(Spider):
             item['price'] = result.xpath(
                 'div[@class="pro-price"]/span/strong/text()').extract_first()
             yield item
+
+        next_page = response.xpath(
+            '//div[@class="multi-page"]/a[@class="aNxt"]/@href').extract_first()
+        if next_page is not None:
+            next_page = response.urljoin(next_page)
+            yield Request(next_page, callback=self.parse)

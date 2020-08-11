@@ -811,6 +811,17 @@ JavaScript渲染服务, 是一个带有HTTP API服务的轻量级浏览器, 对�
 
 5. 创建Item
 
+   ```python
+   import scrapy
+   class QuoteItem(scrapy.Item):
+       # define the fields for your item here like:
+       text = scrapy.Field()
+       author = scrapy.Field()
+       tags = scrapy.Field()
+   ```
+
+   
+
 6. 解析Response
 
 7. 使用Item
